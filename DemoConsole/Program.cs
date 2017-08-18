@@ -7,132 +7,57 @@ namespace DemoConsole
     {
         static void Main(string[] args)
         {
-            //1. Out variable
-            //WriteNumericResult("180");
-            //2. Tuples
-            //TuplesDemo();
+
 
 
             //3 Pattern matching
             //type matching
-            //var area_Square = ComputeAreaModernIs(new Square(12));
+            var area_Square = ComputeAreaModernIs(new Square(12));
+
+
+
+
+
 
             //const matching with null
-            //area_Square = ComputeAreaModernIs(null);
+       var     area_Square_null = ComputeAreaModernIs(null);
+
+
+
+
+
 
             //swich with when
-            //var area_Circle = ComputeArea_Switch(new Circle(0));
+            var area_Circle = ComputeArea_Switch(new Circle(0));
+
+
+
+
+
+
 
             //switch with data
-          var  area_Circle = ComputeArea_Switch(new Circle(20));
+            area_Circle = ComputeArea_Switch(new Circle(20));
+
+
+
+
+
+            //var pattern
 
             var varPattern = 15;
             if (varPattern is var x)
             {
                 Console.WriteLine($"It's a var pattern with the type { x}");
             }
-            //4. Local functions
-            //var fib = SqRt(13);
+           
 
 
 
         }
 
 
-        #region Out Variable
-        private static void WriteNumericResult(string input)
-        {
-            #region Prior to C#7
-            //int numericResult;
-            //if (int.TryParse(input, out numericResult))
-            //    Console.WriteLine(numericResult);
-
-            //else
-            //    Console.WriteLine("Could not parse input");
-            //Console.ReadLine();
-            #endregion
-
-            #region c# 7
-            if (int.TryParse(input, out int result))
-                Console.WriteLine(result);
-            else
-                Console.WriteLine("Could not parse input");
-            Console.ReadLine();
-            #endregion
-        } 
-        #endregion
-
-        #region Tuples
-        private static void TuplesDemo()
-        {
-            #region Assign
-            //Assign variable
-            var tupleLetters = ("a", "b");
-
-            #endregion
-
-
-            #region Assign named tuple
-            //named variables
-            var namedTupleLetters = (First: "a", Second: "b");
-            #endregion
-
-            #region Access or deconstruct UnNamed Tuple
-            //Access unnamed variables
-            var unNamedCoordinates = GetCoordinates();
-            var unX = unNamedCoordinates.Item1;
-            var unY = unNamedCoordinates.Item2;
-            #endregion
-
-
-            #region Accessing  or deconstruct  Named tuples
-            //Accessing Named Variables
-            var namedCoordinates = GetNamedCoordinates();
-            var namX = namedCoordinates.X;
-            var namY = namedCoordinates.Y;
-            #endregion
-
-            #region Deconstructing and assigning
-
-            (var firstItem, var SecondItem) = GetNamedCoordinates(); 
-            #endregion
-        }
-
-        //Named variables
-        private static (double X, double Y) GetNamedCoordinates()
-        {
-            //2 ways to returned named
-            //return (X: 78.01, Y: 102.52);
-            return (X: 78.01, Y: 102.52);
-        }
-
-        //unNamed
-        private static (double, double) GetCoordinates()
-        {
-            return (78.01, 102.52);
-        }
-        #endregion
-
-        #region Local function
-        private static double SqRt(int x)
-        {
-            if (x < 0)
-            {
-                throw new ArgumentException("Less negativity please---", nameof(x));
-
-            }
-            //call local function
-            return SquareRoot(x);
-            
-
-            double SquareRoot(int y)
-            {
-                return Math.Sqrt(y);
-            }
-
-        }
-        #endregion
-
+       
 
         public static double ComputeAreaModernIs(object shape)
         {
@@ -144,15 +69,18 @@ namespace DemoConsole
                 return r.Height * r.Length;
             else if (shape is null)
             {
-                throw new ArgumentException(
-                    message: "shape is null",
-                    paramName: nameof(shape));
+               Console.WriteLine("Null parameter passed in");
             }
             // elided
             throw new ArgumentException(
                 message: "shape is not a recognized shape",
                 paramName: nameof(shape));
         }
+
+
+
+
+
         public static double ComputeArea_Switch(object shape)
         {
             switch (shape)
