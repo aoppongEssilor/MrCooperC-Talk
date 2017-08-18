@@ -72,9 +72,10 @@ namespace DemoConsole
                Console.WriteLine("Null parameter passed in");
             }
             // elided
-            throw new ArgumentException(
-                message: "shape is not a recognized shape",
-                paramName: nameof(shape));
+            //throw new ArgumentException(
+            //    message: "shape is not a recognized shape",
+            //    paramName: nameof(shape));
+            return 0.0;
         }
 
 
